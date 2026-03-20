@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<style>
+     body{
+        background-image: url('http://127.0.0.1:5000/static/feed.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    </style>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="container mt-2">
+                {% for m in messages %}
+                    <div class="alert alert-warning" role="alert">{{ m }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <h3 style="color:white; text-align: center;">Cyberbullying Detection Using Deep Learning</h3><hr><br>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="row justify-content-center" style="margin-bottom: 20px;">
+                <div class="col-md-3">
+                    <form action="/" method="post" style="display: flex; flex-direction: column; gap: 8px;">
+                        <input autocomplete="off" autofocus class="form-control" name="post" placeholder="What's on your mind?" type="text">
+                        <input type="submit" class="btn btn-success" name="submit" value="Post">
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <form action="/detect" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 8px;">
+                        <input autocomplete="off" class="form-control" name="file" type="file" style="height: 48px; font-size: 1.1rem; padding: 10px;">
+                        <input type="submit" name="submit" class="btn btn-success" value="Post">
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <form action="/" method="post" style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="position: relative;">
+                            <i class="fa fa-microphone" onclick="startDictation()" title="Click to dictate" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: #007bff; cursor: pointer;"></i>
+                            <input id="voiceText" name="voice_post" class="form-control" placeholder="Voice input..." type="text" readonly style="padding-left: 40px;">
+                        </div>
+                        <div style="width:100%; display:flex; justify-content:center;">
+                            <button type="submit" class="btn btn-success" style="width: 100%;">Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><hr><br />
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center" style="color: rgb(17, 22, 165);">
+            {% if reputation %}
+            <a href="" class="btn btn-info">Reputation Score: {{ reputation }}</a>
+            {% endif %}
+        </div>
+    </div>
+    <br />
+    <!-- <div class="col-4" style="text-align: left; color: rgb(17, 22, 165);">
+        <form action="/image" method="post"  enctype="multipart/form-data">
+            <input type="file" name="file" id="file" class="form-control" required>
+            <br>
+            <br><input type="submit" class="btn btn-success">
+        </form>
+    </div> -->
+</div>
+
+{% if posts is defined %}
+    {% for post in posts %}
+    <div class="card border-dark mb-3 text-center" >
+        <div class="card-body text-dark">
+            <div class="row">
+                <div class="col-3" style="text-align: center;">
+                        <img src="{{ posts_metadata[post['publisher']] }}" style="width:50%;" alt="Display Picture"><br />
+                        <strong>{{  post["publisher"] }}</strong>
+                </div>
+                <div class="col-6" style="text-align: left;">
+                    <h5 class="card-title">
+                        {{ post["text"] }}  
+                        {% set sc = post["nature"] | float %}
+
+                        {% if sc > 0.70 %}
+                            <img src="http://127.0.0.1:5000/static/bad.png" style="width: 50px;border-radius: 50%;">
+                            <span class="badge badge-danger" style="font-weight:700; font-size:0.95rem; margin-left:8px;">HATE SPEECH</span>
+                        {% elif sc > 0.40 and sc < 0.70 %}
+                            <img src="http://127.0.0.1:5000/static/mid.png" style="width: 50px;border-radius: 50%;">
+                            <span class="badge badge-warning" style="font-weight:700; font-size:0.95rem; margin-left:8px;">NEUTRAL</span>
+                        {% else %}
+                            <img src="http://127.0.0.1:5000/static/good.png" style="width: 50px;border-radius: 50%;">
+                            <span class="badge badge-success" style="font-weight:700; font-size:0.95rem; margin-left:8px;">NON HATE SPEECH</span>
+                        {% endif %}
+
+                    </h5>
+                    <p class="card-text"><em>{{ sc }}</em></p>
+                    <p class="card-text"><em>{{ post["timestamp"] }}</em></p>
+                    <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+                </div>
+                <div class="col-3" style="text-align: center;">
+                    {% if post['image'] %}
+                    <img src="http://127.0.0.1:5000/{{ post['image'] }}" style="width:50%;;border:1px solid black" alt="Display Picture"><br />
+                    {% endif %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <br />
+    {% endfor %}
+{% endif %}
+<script>
+    function myFunction(x) {
+        x.classList.toggle("fa-thumbs-down");
+    }
+    
+    function startDictation() {
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US';
+        recognition.onresult = function(event) {
+            let transcript = '';
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                transcript += event.results[i][0].transcript;
+            }
+            // Fill the dedicated voice input field
+            const voiceInput = document.getElementById('voiceText');
+            if (voiceInput) {
+                voiceInput.value = transcript;
+            }
+        };
+        recognition.onerror = function(event) {
+            let errorMessage = 'Microphone error: ' + event.error;
+            if (event.error === 'network') {
+                errorMessage = 'A network error occurred. This can happen on non-secure (http) connections or if you are offline. Please check your connection.';
+            } else if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+                errorMessage = 'Microphone access was denied. Please allow microphone access in your browser settings to use this feature.';
+            }
+            console.error('Speech recognition error:', event.error, errorMessage);
+            alert(errorMessage);
+        };
+        recognition.start();
+    }
+
+    // Check for SpeechRecognition API support on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const micIcon = document.querySelector('.fa-microphone');
+        if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
+            micIcon.style.color = '#aaa'; // Grey out the icon
+            micIcon.title = 'Voice input is not supported in this browser.';
+            micIcon.onclick = null; // Disable the click event
+        }
+    });
+</script>
+<script>
+    if('{{msg}}'){
+        alert('{{msg}}')
+    }
+</script>
+
+</body>
+{% endblock %}
