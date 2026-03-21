@@ -67,6 +67,7 @@ Metric	Value
  ┣ 📂 static/
  ┣ 📂 model/
  ┗ 📂 dataset/
+ 
 ▶️ Installation & Setup
 # Clone the repository
 git clone https://github.com/bvsangeetha88-rgb/cyberbullying-detection.git
@@ -79,7 +80,9 @@ pip install -r requirements.txt
 
 # Run the app
 python app.py
+
 📸 Screenshots
+
 🔐 Login Page
 
 📝 Feed Page
@@ -95,6 +98,7 @@ Detect cyberbullying content automatically
 Improve accuracy using deep learning
 Handle noisy real-world social media data
 Build a scalable and user-friendly system
+
 ⚠️ Challenges
 Imbalanced datasets
 Detecting sarcasm & slang
@@ -112,6 +116,7 @@ Mansi Rammurthy D
 Noor Fiza
 Pratheeksha Jain S R
 Sangeetha B V
+
 📄 Conclusion
 
 This project demonstrates how LSTM-based deep learning models can effectively detect cyberbullying with high accuracy and reliability, contributing to safer online communities.
