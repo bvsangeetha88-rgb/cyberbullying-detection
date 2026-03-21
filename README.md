@@ -38,6 +38,8 @@ Stopword removal
 Lemmatization
 Word embeddings (GloVe)
 
+
+
 🖼️ Extra Capabilities
 
 OCR support (image → text detection)
@@ -63,6 +65,7 @@ Metric	Value
 
 ✔️ Captures long-term dependencies in text
 
+
 ⚙️ Workflow
 📂 Project Structure
 📦 cyberbullying-detection
@@ -78,6 +81,7 @@ Metric	Value
  ┣ 📂 model/
  ┗ 📂 dataset/
 
+
  
 ▶️ Installation & Setup
 # Clone the repository
@@ -91,6 +95,8 @@ pip install -r requirements.txt
 
 # Run the app
 python app.py
+
+
 📸 Screenshots
 🔐 Login Page
 
@@ -107,6 +113,8 @@ Detect cyberbullying content automatically
 Improve accuracy using deep learning
 Handle noisy real-world social media data
 Build a scalable and user-friendly system
+
+
 ⚠️ Challenges
 Imbalanced datasets
 Detecting sarcasm & slang
