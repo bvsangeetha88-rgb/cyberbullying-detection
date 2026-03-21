@@ -69,7 +69,7 @@ Metric	Value
  ┗ 📂 dataset/
 ▶️ Installation & Setup
 # Clone the repository
-git clone https://github.com/your-username/cyberbullying-detection.git
+git clone https://github.com/bvsangeetha88-rgb/cyberbullying-detection.git
 
 # Navigate to folder
 cd cyberbullying-detection
