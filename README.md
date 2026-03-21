@@ -3,24 +3,33 @@
 📌 Overview
 
 Cyberbullying is a growing issue on social media platforms, affecting millions of users.
+
 This project uses Deep Learning (LSTM) to automatically detect and classify harmful content.
 
 🔍 The system classifies text into:
 
 🚫 Hate Speech
+
 ⚠️ Offensive Content
+
 ✅ Non-Hate Speech
+
 🚀 Key Features
+
 
 ✨ Smart Detection
 
 Real-time cyberbullying classification
+
 Multi-class prediction (better than binary models)
+
 
 🧠 Deep Learning Powered
 
 LSTM model for sequence understanding
+
 Handles contextual meaning in text
+
 
 🧹 Advanced NLP Processing
 
@@ -51,6 +60,7 @@ Metric	Value
 ⚖️ F1 Score	91.10%
 
 ✔️ LSTM outperforms traditional ML models
+
 ✔️ Captures long-term dependencies in text
 
 ⚙️ Workflow
@@ -67,6 +77,7 @@ Metric	Value
  ┣ 📂 static/
  ┣ 📂 model/
  ┗ 📂 dataset/
+
  
 ▶️ Installation & Setup
 # Clone the repository
@@ -80,9 +91,7 @@ pip install -r requirements.txt
 
 # Run the app
 python app.py
-
 📸 Screenshots
-
 🔐 Login Page
 
 📝 Feed Page
@@ -98,7 +107,6 @@ Detect cyberbullying content automatically
 Improve accuracy using deep learning
 Handle noisy real-world social media data
 Build a scalable and user-friendly system
-
 ⚠️ Challenges
 Imbalanced datasets
 Detecting sarcasm & slang
@@ -116,7 +124,6 @@ Mansi Rammurthy D
 Noor Fiza
 Pratheeksha Jain S R
 Sangeetha B V
-
 📄 Conclusion
 
 This project demonstrates how LSTM-based deep learning models can effectively detect cyberbullying with high accuracy and reliability, contributing to safer online communities.
