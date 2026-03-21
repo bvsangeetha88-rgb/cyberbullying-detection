@@ -1,6 +1,4 @@
-<think>The user wants me to reformat the cyberbullying detection README using my formatting style while keeping the same content. They want me to present it in a cleaner, more readable markdown format that I would naturally use.
-
-Let me reorganize this content in a professional, clean markdown format that's easy to read and follow.</think># 🛡️ Cyberbullying Detection Using Deep Learning
+🛡️ Cyberbullying Detection Using Deep Learning
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
 ![Flask](https://img.shields.io/badge/Framework-Flask-black?logo=flask)
