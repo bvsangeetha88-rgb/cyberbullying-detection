@@ -110,17 +110,6 @@ python app.py
 
 ---
 
-## 📸 Screenshots
-
-- 🔐 **Login Page**
-- 📝 **Feed Page**
-- 👤 **Profile Page**
-- 🔍 **Detection Output**
-
-*Replace with actual screenshots (important for LinkedIn!)*
-
----
-
 ## 🎯 Objectives
 
 - Detect cyberbullying content automatically
