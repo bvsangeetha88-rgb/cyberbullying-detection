@@ -6,6 +6,7 @@ Cyberbullying is a growing issue on social media platforms, affecting millions o
 
 This project uses Deep Learning (LSTM) to automatically detect and classify harmful content.
 
+
 🔍 The system classifies text into:
 
 🚫 Hate Speech
@@ -17,6 +18,7 @@ This project uses Deep Learning (LSTM) to automatically detect and classify harm
 🚀 Key Features
 
 
+
 ✨ Smart Detection
 
 Real-time cyberbullying classification
@@ -24,11 +26,13 @@ Real-time cyberbullying classification
 Multi-class prediction (better than binary models)
 
 
+
 🧠 Deep Learning Powered
 
 LSTM model for sequence understanding
 
 Handles contextual meaning in text
+
 
 
 🧹 Advanced NLP Processing
@@ -43,43 +47,74 @@ Word embeddings (GloVe)
 🖼️ Extra Capabilities
 
 OCR support (image → text detection)
+
 User authentication system
+
 Interactive UI
+
 🛠️ Tech Stack
+
 Category	Technology
+
 💻 Language	Python
+
 🌐 Framework	Flask
+
 🤖 ML/DL	TensorFlow, Keras
+
 🧠 NLP	NLTK, GloVe
+
 🎨 Frontend	HTML, CSS
+
 🗄️ Database	SQLite
+
 🖼️ OCR	Tesseract
+
 🧠 Model Performance
+
+
+
 Metric	Value
 🎯 Accuracy	83.67%
 📊 Precision	83.66%
 🔁 Recall	99.90%
 ⚖️ F1 Score	91.10%
 
+
 ✔️ LSTM outperforms traditional ML models
 
 ✔️ Captures long-term dependencies in text
 
 
+
 ⚙️ Workflow
+
 📂 Project Structure
+
 📦 cyberbullying-detection
+
  ┣ 📜 app.py
+ 
  ┣ 📜 auth.py
+ 
  ┣ 📜 home.py
+ 
  ┣ 📜 helpers.py
+ 
  ┣ 📜 text_classifier.py
+ 
  ┣ 📜 reddy_tech.py
+ 
  ┣ 📜 retrain.py
+ 
  ┣ 📂 templates/
+ 
  ┣ 📂 static/
+ 
  ┣ 📂 model/
+ 
  ┗ 📂 dataset/
+
 
 
  
@@ -97,7 +132,9 @@ pip install -r requirements.txt
 python app.py
 
 
+
 📸 Screenshots
+
 🔐 Login Page
 
 📝 Feed Page
@@ -108,11 +145,15 @@ python app.py
 
 👉 Replace these placeholders with your actual screenshots (important for LinkedIn!)
 
+
+
 🎯 Objectives
 Detect cyberbullying content automatically
 Improve accuracy using deep learning
 Handle noisy real-world social media data
 Build a scalable and user-friendly system
+
+
 
 
 ⚠️ Challenges
@@ -122,10 +163,14 @@ Code-mixed language
 High computation cost
 🔮 Future Enhancements
 
+
+
 🚀 Transformer models (BERT, GPT)
 🌍 Multilingual detection
 📱 Real-time deployment
 🧠 Multimodal analysis (text + image + video)
+
+
 
 👩‍💻 Team
 Mansi Rammurthy D
